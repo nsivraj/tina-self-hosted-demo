@@ -29,7 +29,6 @@
     "tinacms": "^2.2.1",
     "tinacms-authjs": "^5.0.1",
     "tinacms-gitprovider-github": "^2.0.1",
-    "typescript": "^5.5.4",
-    "upstash-redis-level": "^1.1.1"
+    "typescript": "^5.5.4"
   }
 }

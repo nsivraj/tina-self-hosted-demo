@@ -1,3 +1,16 @@
+# Switch this codebase to use the following self-hosting components
+
+1. AWS Backend Host (using AWS severless Lambda)
+2. GitHub git provider
+3. MongoDB hosted on AWS EC2 or hosted on local laptop
+
+- https://github.com/Level/awesome?tab=readme-ov-file
+- https://github.com/VannaDii/DynamoDb-LevelDown?tab=readme-ov-file with https://github.com/juliangruber/multilevel if needed
+- or use https://github.com/loune/s3leveldown
+  - s3 is not an option because individual operations (put get del) are atomic as guaranteed by S3, but the implementation of batch is not atomic. Two concurrent batch calls will have their operations interwoven.
+
+4. Unicity Employee Auth Provider (Probably Google Auth or Unicity JumpCloud)
+
 # Tina Self Hosted Demo 🦙
 
 This is a A Next.js + TinaCMS starter site designed to be hosted on entirely on Vercel (with Markdown in GitHub). Please check out [the docs](https://tina.io/docs/self-hosted/overview/) for more information on self-hosting TinaCMS.
@@ -48,7 +61,6 @@ Install the project's dependencies:
 
 > [!NOTE]  
 > [Do you know the best package manager for Node.js?](https://www.ssw.com.au/rules/best-package-manager-for-node/) Using the right package manager can greatly enhance your development workflow. We recommend using pnpm for its speed and efficient handling of dependencies. Learn more about why pnpm might be the best choice for your projects by checking out this rule from SSW.
-
 
 ```
 pnpm install

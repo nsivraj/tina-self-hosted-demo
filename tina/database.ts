@@ -1,5 +1,5 @@
 import { createDatabase, createLocalDatabase } from "@tinacms/datalayer";
-import { RedisLevel } from "upstash-redis-level";
+// import { RedisLevel } from "upstash-redis-level";
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
 // Manage this flag in your CI/CD pipeline and make sure it is set to false in production
@@ -39,3 +39,77 @@ export default isLocal
       }),
       namespace: branch,
     });
+
+// ==============================================================================================
+
+// const levelup = require("levelup");
+// const { DynamoDB } = require("aws-sdk");
+// const { DynamoDbDown } = require("dynamodbdown");
+
+// const dynamoDBOptions = {
+//   region: "eu-west-1",
+//   secretAccessKey: "foo",
+//   accessKeyId: "bar",
+// };
+
+// // capacity can be specified; defaults to 5/5:
+// const factoryOptions = {
+//   ProvisionedThroughput: {
+//     ReadCapacityUnits: 10,
+//     WriteCapacityUnits: 10,
+//   },
+// };
+
+// const factory = DynamoDbDown(new DynamoDB(dynamoDBOptions));
+
+// const db = levelup(factory("tableName"), factoryOptions);
+
+// ==============================================================================================
+
+// const levelup = require('levelup');
+// const { DynamoDB } = require('aws-sdk');
+// const { DynamoDbDown } = require('dynamodbdown');
+
+// const factory = DynamoDbDown(
+//   new DynamoDB({
+//     region: 'us-west-1',
+//     secretAccessKey: 'foo',
+//     accessKeyId: 'bar'
+//   })
+// );
+
+// const db = levelup(factory('tableName$hashKey'));
+
+// db.put('some key', 'some value', => err {
+//   // the DynamoDB object would now look like this:
+//   // {
+//   //   '---hkey': 'hashKey',
+//   //   '---rkey': 'some key',
+//   // }
+// });
+
+// ==============================================================================================
+
+// const levelup = require('levelup');
+// const { DynamoDB } = require('aws-sdk');
+// const { DynamoDbDown } = require('dynamodbdown');
+
+// const factory = DynamoDbDown(
+//   new DynamoDB({
+//     region: 'us-west-1',
+//     secretAccessKey: 'foo',
+//     accessKeyId: 'bar'
+//   })
+// );
+
+// const db = levelup(factory('tableName'));
+
+// db.put('some string', 'LevelUP string');
+// db.put('some binary', Buffer.from('LevelUP buffer'));
+
+// const dbReadStream = db.createReadStream();
+
+// dbReadStream.on('data', console.log);
+// dbReadStream.on('close', () => {
+//   console.log('read stream closed');
+// });
