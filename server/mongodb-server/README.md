@@ -9,7 +9,7 @@
 5. To verify the startup of the mongodb database do:
    - Install mongosh: https://www.mongodb.com/docs/mongodb-shell/install/
    - mongosh --version
-   - source ../../.env && mongosh --host 0.0.0.0 -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin $MONGO_INITDB_DATABASE
+   - source ../../.env && mongosh --host $MONGODB_HOST -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin $MONGO_INITDB_DATABASE
    - At the mongosh prompt do: `db.getName();`
    - Then at the mongosh prompt do: `exit`
 
@@ -24,7 +24,7 @@
 7. To verify the startup of the mongodb database do:
    - Install mongosh: https://www.mongodb.com/docs/mongodb-shell/install/
    - mongosh --version
-   - source ../../.env && mongosh --host 0.0.0.0 -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin $MONGO_INITDB_DATABASE
+   - source ../../.env && mongosh --host $MONGODB_HOST -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin $MONGO_INITDB_DATABASE
    - At the mongosh prompt do: `db.getName();`
    - Then at the mongosh prompt do: `exit`
 
