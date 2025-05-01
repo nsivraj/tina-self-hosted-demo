@@ -1,8 +1,24 @@
 import { createDatabase, createLocalDatabase } from "@tinacms/datalayer";
-// import { RedisLevel } from "upstash-redis-level";
 import { MongodbLevel } from "mongodb-level";
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
+function varsubst(s?: string) {
+  // const myVariable = "world";
+  // const myString = "Hello, ${myVariable}!";
+  const replacedString = s?.replace(/\${([^}]+)}/g, (_, variableName) => {
+    // return eval(variableName);
+    // console.log("The variableName is: " + variableName);
+    return process.env[variableName] ? process.env[variableName] : "";
+  });
+
+  // console.log("The replaced string is: " + replacedString); // Output: Hello, world!
+  // return s.replace(/\$\{(.*?)\}/g, function (m, p) {
+  //   return process.env[p];
+  // });
+  return replacedString;
+}
+
+// console.log("process.env.MONGODB_URI is: " + varsubst(process.env.MONGODB_URI));
 // Manage this flag in your CI/CD pipeline and make sure it is set to false in production
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 const dbName = process.env.MONGO_INITDB_DATABASE as string;
@@ -35,7 +51,7 @@ export default isLocal
         // If you are not using branches you could pass a static collection name. ie: "tinacms"
         collectionName: `tinacms-${branch}`,
         dbName,
-        mongoUri: process.env.MONGODB_URI as string,
+        mongoUri: varsubst(process.env.MONGODB_URI) as string,
       }),
       namespace: branch,
     });
